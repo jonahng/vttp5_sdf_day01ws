@@ -21,8 +21,20 @@ import java.io.Console;
 import java.util.*;
 
 public class GroceryList{
+    List<String> grocerylist = new ArrayList();
+    public String test(){
+    Scanner scan = new Scanner(System.in);
+    String keyWord = scan.next();
+    scan.close();
+    return keyWord;
 
-    public String getUserKeyword(){
+    }
+    public void main(String[] args){
+        System.out.println(test());
+    }
+    
+
+   /*  public String getUserKeyword(){
     Scanner scan = new Scanner(System.in);
     String keyWord = scan.next();
     scan.close();
@@ -40,7 +52,7 @@ public class GroceryList{
         }
     
 
-    }
+    } */
    
 
 
