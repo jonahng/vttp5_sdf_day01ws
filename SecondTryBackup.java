@@ -3,38 +3,21 @@ import java.io.*;
 import java.nio.*;
 import java.nio.file.Files;
 
-public class SecondTry {
-    public String newFileName = "";
-    
-
+public class SecondTryBackup {
 
     
     
-    public SecondTry(String newFileName) {
-        this.newFileName = newFileName;
-    }
-
-
-
-
-
-
     public static void main(String[] args) throws IOException{
-
         
         menu();
         userInput();
-
     }
-
-
 
 
 
 
     public static void menu(){
         System.out.println("Hi this is your shopping cart, type list, add item, delete item, close to continue");
-
     }
 
 
@@ -42,8 +25,7 @@ public class SecondTry {
 
 
     public static void userInput() throws IOException{
-        SecondTry instance = new SecondTry(null);
-
+        String newFileName = "";
         List<String> stuffInCart = new ArrayList<>();
         Console console = System.console();
         String keyboardInput = "";
@@ -70,14 +52,15 @@ public class SecondTry {
                     String item = scan.next();
                     stuffInCart.add(item);
                 }
-                scan.close();
-
+                FileWriter myWriter = new FileWriter(newFileName);
+                for(String item: stuffInCart){
+                    myWriter.write(item + "\n");
                 }
+                myWriter.close();
+                scan.close();
                 
 
-                
-
-            
+            }
 
             if(keyboardInput.startsWith("delete")){
                 Scanner scan = new Scanner(keyboardInput.substring(7));
@@ -91,8 +74,8 @@ public class SecondTry {
 
             if(keyboardInput.startsWith("path")){
                 Scanner scan = new Scanner(keyboardInput.substring(4));
-                    instance.setNewFileName("C:\\Users\\65932\\vttp5_sdf_day01ws\\" + scan.next() + ".txt") ;
-                    File newFile = new File(instance.getNewFileName());
+                    newFileName = "C:\\Users\\65932\\vttp5_sdf_day01ws\\" + scan.next() + ".txt";
+                    File newFile = new File(newFileName);
                     newFile.createNewFile();
                     System.out.println("new file created! filename: " + newFile.getName());
 /*                     FileWriter myWriter = new FileWriter(newFileName);
@@ -106,32 +89,12 @@ public class SecondTry {
                     
 
                 }
-                FileWriter myWriter = new FileWriter(instance.getNewFileName());
-                for(String item: stuffInCart){
-                    myWriter.write(item + "\n");
-                    
                 
 
             }
-            myWriter.close();
 
 
         }
-    }
-
-
-
-
-    public String getNewFileName() {
-        return newFileName;
-    }
-
-
-
-
-    public void setNewFileName(String newFileName) {
-        this.newFileName = newFileName;
-    }
 
 
 
