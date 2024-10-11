@@ -73,6 +73,31 @@ public class SecondTry {
                 scan.close();
 
                 }
+
+
+            if(keyboardInput.startsWith("login")){
+                Scanner scan = new Scanner(keyboardInput.substring(6));
+
+                String loginName = scan.next();
+                //if filename exists, instance.setfilename = existing file
+                //else if filename does not exist, create new file, and set file name = new file
+
+
+                instance.setNewFileName("C:\\Users\\65932\\vttp5_sdf_day01ws\\cartdb\\" + loginName + ".txt") ;
+                File newFile = new File(instance.getNewFileName());
+                newFile.createNewFile();
+                System.out.println("new file created! filename: " + newFile.getName());
+/*              FileWriter myWriter = new FileWriter(newFileName);
+                myWriter.write("Hello new file written");
+                myWriter.close(); */
+
+
+    
+                scan.close();
+
+                    
+                
+            }
                 
 
                 

@@ -5,8 +5,11 @@ public class FileReader{
 
     public static void main(String[] args){
 
+
         try{
-            File myObj = new File("C:\\Users\\65932\\vttp5_sdf_day01ws\\try32.txt");
+            Console console = System.console();
+            String fileToRead = console.readLine("whose file do you want to check?");
+            File myObj = new File("C:\\Users\\65932\\vttp5_sdf_day01ws\\cartdb\\"+fileToRead + ".txt");
             Scanner myReader = new Scanner(myObj);
             while(myReader.hasNextLine()){
                 String listItem = myReader.nextLine();
