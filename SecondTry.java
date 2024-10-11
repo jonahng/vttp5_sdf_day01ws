@@ -132,6 +132,7 @@ public class SecondTry {
 
                 }
                 FileWriter myWriter = new FileWriter(instance.getNewFileName());
+                myWriter.write(instance.getNewFileName() + "\n");
                 for(String item: stuffInCart){
                     myWriter.write(item + "\n");
                     
