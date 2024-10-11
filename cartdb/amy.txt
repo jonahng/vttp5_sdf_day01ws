@@ -1,2 +1,5 @@
-dictionary
+C:\Users\65932\vttp5_sdf_day01ws\cartdb\amy.txt
+C:\Users\65932\vttp5_sdf_day01ws\cartdb\amy.txt
+C:\Users\65932\vttp5_sdf_day01ws\cartdb\amy.txt
 thesaurus
+robot

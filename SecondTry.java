@@ -5,6 +5,8 @@ import java.nio.file.Files;
 
 public class SecondTry {
     public String newFileName = "";
+
+    public final class Paths extends Object{}
     
 
 
@@ -74,6 +76,25 @@ public class SecondTry {
 
                 }
 
+            
+            if(keyboardInput.startsWith("users")){
+                File folder = new File("C:\\Users\\65932\\vttp5_sdf_day01ws\\cartdb");
+                File[] filesList = folder.listFiles();
+                System.out.println("Here are the users in the database:");
+                for(File file: filesList){
+                    System.out.println(file.getName());
+                }
+                System.out.println("---End of database---");
+                
+
+
+            }
+
+
+
+
+
+
 
             if(keyboardInput.startsWith("login")){
                 Scanner scan = new Scanner(keyboardInput.substring(6));
@@ -81,12 +102,17 @@ public class SecondTry {
                 String loginName = scan.next();
                 //if filename exists, instance.setfilename = existing file
                 //else if filename does not exist, create new file, and set file name = new file
+                
 
 
                 instance.setNewFileName("C:\\Users\\65932\\vttp5_sdf_day01ws\\cartdb\\" + loginName + ".txt") ;
                 File newFile = new File(instance.getNewFileName());
-                newFile.createNewFile();
-                System.out.println("new file created! filename: " + newFile.getName());
+
+                if(newFile.exists()){
+                    stuffInCart = Files.readAllLines(newFile.toPath());
+                    System.out.println("logged in to your account!");
+                } else{newFile.createNewFile();
+                System.out.println("new file created! filename: " + newFile.getName());}
 /*              FileWriter myWriter = new FileWriter(newFileName);
                 myWriter.write("Hello new file written");
                 myWriter.close(); */
@@ -94,11 +120,13 @@ public class SecondTry {
 
     
                 scan.close();
-
                     
                 
             }
                 
+
+
+
 
                 
 
@@ -118,6 +146,12 @@ public class SecondTry {
                 Scanner scan = new Scanner(keyboardInput.substring(4));
                     instance.setNewFileName("C:\\Users\\65932\\vttp5_sdf_day01ws\\" + scan.next() + ".txt") ;
                     File newFile = new File(instance.getNewFileName());
+/*                     if(newFile.exists()){
+                        Path newPath = Paths.get(instance.getNewFileName());
+                        
+                        stuffInCart = Files.readAllLines(newPath);
+                    } */
+
                     newFile.createNewFile();
                     System.out.println("new file created! filename: " + newFile.getName());
 /*                     FileWriter myWriter = new FileWriter(newFileName);
@@ -143,6 +177,7 @@ public class SecondTry {
 
 
         }
+        System.out.println("User logged out, thank you!");
     }
 
 
